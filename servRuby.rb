@@ -12,12 +12,7 @@ loop {                          # Se ejecutará el server infinitamente
 
   client = server.accept        # Acepta la conexión del cliente
   
-<<<<<<< HEAD
-  puts "¿Cuál es tu nombre de usuario?"  #Coloca nombre de usuario
-  usuario = gets.chomp
 
-=======
->>>>>>> 798170aaaab86b4f1eb542a1a001c2ce2ea4303a
   while true
     print "Yo:  "
     mensaje = gets.chomp          # Colocar el mensaje por consola
@@ -32,14 +27,9 @@ loop {                          # Se ejecutará el server infinitamente
 
 
 
-<<<<<<< HEAD
+
 # $ ruby servMundo.rb 
-=======
-
-
-
 
 
 
 # $ ruby servMundo.rb 
->>>>>>> 798170aaaab86b4f1eb542a1a001c2ce2ea4303a

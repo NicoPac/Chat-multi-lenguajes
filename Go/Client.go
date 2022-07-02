@@ -15,12 +15,10 @@ func main() {
   conn, _ := net.Dial("tcp", "127.0.0.1:"+port)
 
 
-
   fmt.Print("Ingrese su nombre de usuario: ")
-  usuario := bufio.NewScanner(os.Stdin).Text()
-  fmt.Println(usuario)
-
-
+  var usuario string
+  fmt.Scanln(&usuario)
+  usuario += ": "
 
   for { 
   
@@ -30,11 +28,11 @@ func main() {
     text, _ := reader.ReadString('\n')
 
     // send to server
-    fmt.Fprintf(conn, text)
+    fmt.Fprintf(conn, usuario + text)
 
     // wait for reply
     message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message from server: "+message)
+    fmt.Print(message)
   }
 }
 

@@ -14,12 +14,10 @@ func main() {
   ln, _ := net.Listen("tcp", ":"+port)
 
 
-  
   fmt.Print("Ingrese su nombre de usuario: ")
-  usuario := bufio.NewScanner(os.Stdin).Text()
-  
-  fmt.Println(usuario)
-
+  var usuario string
+  fmt.Scanln(&usuario)
+  usuario += ": "
 
 
   // accept connection
@@ -30,14 +28,14 @@ func main() {
   for { 
     // get message, output
     message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message Received:", string(message))
+    fmt.Print(string(message))
 
 	reader := bufio.NewReader(os.Stdin)
     fmt.Print("Yo: ")
     text, _ := reader.ReadString('\n')
 
-    // send to server
-    fmt.Fprintf(conn,text)
+    // send to Client
+    fmt.Fprintf(conn, usuario + text)
   }
 }
 

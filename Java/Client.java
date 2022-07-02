@@ -17,12 +17,14 @@ public class Client {
         final Scanner sc = new Scanner(System.in); // Lee lo escrito por teclado
 
         try {
-            clientSocket = new Socket("127.0.0.1",2000);
+            String hostname = "localhost";
+            int port = 2000;
+            clientSocket = new Socket(hostname,port);
             out = new PrintWriter(clientSocket.getOutputStream());
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
 
-            System.out.println("Coloque su nombre de usuario: ");
+            System.out.println("Ingrese su nombre de usuario: ");
             String usuario= (new Scanner(System.in)).nextLine();
 
             Thread sender = new Thread(new Runnable() {

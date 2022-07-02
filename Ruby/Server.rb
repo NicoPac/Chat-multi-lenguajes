@@ -5,7 +5,7 @@ require 'socket'                # Obtenemos la biblioteca socket
 port= 2000
 server = TCPServer.open(port)   # El socket escuchará el puerto deseado
 
-  puts "¿Cuál es tu nombre de usuario?"
+  puts "Ingrese su nombre de usuario:"
   usuario = gets.chomp
 
 loop {                          # Se ejecutará el server infinitamente

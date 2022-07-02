@@ -21,13 +21,13 @@ public class Server {
         final Scanner sc=new Scanner(System.in);
 
         try {
-            
-            serverSocket = new ServerSocket(2000);
+            int port = 2000;
+            serverSocket = new ServerSocket(port);
             clientSocket = serverSocket.accept();
             out = new PrintWriter(clientSocket.getOutputStream());
             in = new BufferedReader (new InputStreamReader(clientSocket.getInputStream()));
 
-            System.out.println("Coloque su nombre de usuario: ");
+            System.out.println("Ingrese su nombre de usuario: ");
             String usuario= (new Scanner(System.in)).nextLine();
 
 
@@ -41,7 +41,7 @@ public class Server {
                         String horaStr = hora.format(new Date());
 
                         msg = sc.nextLine(); //Lee lo escrito por teclado
-                        out.println(usuario + ": " +msg + "     ["+ horaStr +"]");    // write data stored in msg in the clientSocket
+                        out.println(usuario + ": " +msg + "     ["+ horaStr +"]");    // Prepara para enviar el nombre de usuario, mensaje y la hora
                         out.flush();   // Envía el mensaje
                     }
                 }
@@ -84,4 +84,5 @@ public class Server {
 javac Server.java
 
 java Server
+
 */

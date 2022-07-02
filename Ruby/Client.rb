@@ -7,7 +7,7 @@ port = 2000
 
 server = TCPSocket.open(hostname, port)
 
-puts "¿Cuál es tu nombre de usuario?"  #Coloca nombre de usuario
+puts "Ingrese su nombre de usuario:"  #Coloca nombre de usuario
 usuario = gets.chomp
 
 loop {

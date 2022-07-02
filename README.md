@@ -37,13 +37,12 @@ Para aprobar será necesario que como mínimo 2 clientes en diferentes lenguajes
  |Java|Ruby|
  |Ruby|Ruby|
  |Ruby|Java|
-
+ |Go|Go| (Aún falta agregar los horarios)
+ |Go|Java|
+ |Java|Go|
 
  **En proceso:**
   |Servidor|Cliente|
  |:------:|:-----:|
- |Go|Go|
- |Go|Java|
  |Go|Ruby|
- |Java|Go|
  |Ruby|Go|

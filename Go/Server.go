@@ -20,21 +20,22 @@ func main() {
   usuario += ": "
 
 
-  // accept connection
+  // Acepta conexión
   conn, _ := ln.Accept()
 
 
-  // run loop forever (or until ctrl-c)
+  // Loop
   for { 
-    // get message, output
+
+    // Espera mensaje
     message, _ := bufio.NewReader(conn).ReadString('\n')
     fmt.Print(string(message))
 
-	reader := bufio.NewReader(os.Stdin)
+	  reader := bufio.NewReader(os.Stdin)
     fmt.Print("Yo: ")
     text, _ := reader.ReadString('\n')
 
-    // send to Client
+    // Enviar al Client
     fmt.Fprintf(conn, usuario + text)
   }
 }

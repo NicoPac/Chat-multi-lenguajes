@@ -14,11 +14,11 @@ import java.util.Calendar;
 
 public class Server {
     public static void main(String[] args){
-        final ServerSocket serverSocket ;
+        final ServerSocket serverSocket ; // Socket utilizado para enviar y recibir información como Server
         final Socket clientSocket ;
-        final BufferedReader in;
-        final PrintWriter out;
-        final Scanner sc=new Scanner(System.in);
+        final BufferedReader in;    // Se utiliza para leer datos del socket
+        final PrintWriter out;      // Se utiliza para escribir datos del socket
+        final Scanner sc=new Scanner(System.in); // Lee lo escrito por teclado
 
         try {
             int port = 2000;
@@ -27,13 +27,15 @@ public class Server {
             out = new PrintWriter(clientSocket.getOutputStream());
             in = new BufferedReader (new InputStreamReader(clientSocket.getInputStream()));
 
+            // Solicita nombre de usuario
             System.out.println("Ingrese su nombre de usuario: ");
             String usuario= (new Scanner(System.in)).nextLine();
 
 
+            // Enviar mensaje
             Thread sender= new Thread(new Runnable() {
                 String msg; // Variable que contiene lo ingresado por teclado por el usuario
-                @Override   // annotation to override the run method?
+                @Override   
                 public void run() {
                     while(true){
 
@@ -48,6 +50,8 @@ public class Server {
             });
             sender.start();
 
+
+            // Recibir mensaje
             Thread receive= new Thread(new Runnable() {
                 String msg ;
                 @Override

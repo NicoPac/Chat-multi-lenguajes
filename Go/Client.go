@@ -10,7 +10,7 @@ import "os"
 
 func main() {
 
-  // connect to server
+  // Conecta al servidor
   var port string = "2000"
   conn, _ := net.Dial("tcp", "127.0.0.1:"+port)
 
@@ -20,17 +20,18 @@ func main() {
   fmt.Scanln(&usuario)
   usuario += ": "
 
+  // Loop
   for { 
   
-	// what to send?
+	// Mensaje a enviar
     reader := bufio.NewReader(os.Stdin)
     fmt.Print("Yo: ")
     text, _ := reader.ReadString('\n')
 
-    // send to server
+    // Envia al Server
     fmt.Fprintf(conn, usuario + text)
 
-    // wait for reply
+    // Espera respuesta
     message, _ := bufio.NewReader(conn).ReadString('\n')
     fmt.Print(message)
   }

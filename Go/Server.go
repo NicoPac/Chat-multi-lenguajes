@@ -13,7 +13,7 @@ func main() {
   var port string = "2000"
   ln, _ := net.Listen("tcp", ":"+port)
 
-
+  // Coloca nombre de usuario
   fmt.Print("Ingrese su nombre de usuario: ")
   var usuario string
   fmt.Scanln(&usuario)
@@ -27,16 +27,22 @@ func main() {
   // Loop
   for { 
 
-    // Espera mensaje
-    message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print(string(message))
 
+    // Escribir mensaje a enviar
 	  reader := bufio.NewReader(os.Stdin)
     fmt.Print("Yo: ")
     text, _ := reader.ReadString('\n')
 
     // Enviar al Client
     fmt.Fprintf(conn, usuario + text)
+    
+
+
+    // Recibe mensaje
+    message, _ := bufio.NewReader(conn).ReadString('\n')
+    fmt.Print(string(message))
+
+
   }
 }
 

@@ -23,7 +23,7 @@ func main() {
   // Loop
   for { 
   
-	// Mensaje a enviar
+	// Escribir mensaje a enviar
     reader := bufio.NewReader(os.Stdin)
     fmt.Print("Yo: ")
     text, _ := reader.ReadString('\n')
@@ -31,7 +31,7 @@ func main() {
     // Envia al Server
     fmt.Fprintf(conn, usuario + text)
 
-    // Espera respuesta
+    // Recibe mensaje
     message, _ := bufio.NewReader(conn).ReadString('\n')
     fmt.Print(message)
   }

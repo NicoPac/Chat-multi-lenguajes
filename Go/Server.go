@@ -7,6 +7,7 @@ import "net"
 import "fmt"
 import "bufio"
 import "os"
+import "time"
 
 func main() {
 
@@ -20,29 +21,31 @@ func main() {
   usuario += ": "
 
 
+  // Loop
+  for { 
+
   // Acepta conexión
   conn, _ := ln.Accept()
 
 
-  // Loop
-  for { 
+    for{
+
+      // Escribir mensaje a enviar
+      reader := bufio.NewReader(os.Stdin)
+      fmt.Print("Yo: ")
+      text, _ := reader.ReadString('\n')
+      hora := "             ["+(time.Now()).Format("15:04")+"]"
+
+      text += hora
+      // Enviar al Client
+      fmt.Fprintf(conn, usuario + text)
 
 
-    // Escribir mensaje a enviar
-	  reader := bufio.NewReader(os.Stdin)
-    fmt.Print("Yo: ")
-    text, _ := reader.ReadString('\n')
+      // Recibe mensaje
+      message, _ := bufio.NewReader(conn).ReadString('\n')
+      fmt.Print(string(message))
 
-    // Enviar al Client
-    fmt.Fprintf(conn, usuario + text)
-    
-
-
-    // Recibe mensaje
-    message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print(string(message))
-
-
+    }
   }
 }
 

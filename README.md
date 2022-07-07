@@ -33,7 +33,7 @@ Para aprobar será necesario que como mínimo 2 clientes en diferentes lenguajes
 **Actualmente funcionando:**
  |Servidor|Cliente|
  |:------:|:-----:|
- |Go|Go| (Aún falta agregar los horarios en GO)
+ |Go|Go| (Debe hablar server primero. Aún falta agregar los horarios en GO)
  |Go|Java|
  |Go|Ruby|
  |Java|Java|
